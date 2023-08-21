@@ -1,3 +1,5 @@
+'use client'
+import Link from 'next/link'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -11,7 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+        <div>
+          <ul className="text-xl text-black bg-orange-600 font-bold p-5 gap-5 flex ">
+            <Link href={'/'}>Home</Link>
+            <Link href={'/about'}>About</Link>
+            <Link href={'/login'}>Login</Link>
+          </ul>
+        </div>
+        {children}</body>
     </html>
   )
 }
