@@ -1,19 +1,28 @@
 'use client'
 
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+
 const Home = () => {
-  const test=(item)=>{
-    alert(item)
-  }
-  const InnerComponent=()=>{
-    return <h3 className="text-3xl font-bold text-red-500">Inner Components </h3>
-  }
+ const router = useRouter()
+
+ const navigate =(page)=>{
+  router.push(page)
+ }
   return (
 
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <InnerComponent></InnerComponent>
-      <h2 className='text-7xl font-bold p-5 text-orange-500 text-center'>this is test next.js</h2>
-      <button onClick={()=>test('TEST Item')} className="p-5 text-2xl font-bold text-yellow-400 bg-slate-600">Event Here</button>
-      {InnerComponent()}
+    <main className="">
+
+      <h2 className='text-7xl font-bold p-5 text-orange-500 text-center'>Lets Start NEXT.JS</h2>
+      <ul className="text-xl text-black bg-orange-600 font-bold p-5 gap-5 flex ">
+        <Link href={'/'}>Home</Link>
+        <Link href={'about'}>About</Link>
+        <Link href={'login'}>Login</Link>
+      </ul>
+      <button onClick={()=>navigate('/login')} className="text-xl font-semibold bg-orange-500 text-black py-2 px-5"> Login</button>
+      <button onClick={()=>navigate('/about')} className="text-xl font-semibold bg-orange-500 text-black py-2 px-5"> About</button>
+
+
     </main>
 
   )
